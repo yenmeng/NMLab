@@ -15,3 +15,7 @@ nmlab@nmlab-VirtualBox:~/Desktop$ checksec vuln
     NX:       NX enabled
     PIE:      No PIE
 ```
+First view the source code and run the program, it is clear that the gets() function causes overflow.We want to create a ROP chain to execute /bin/sh, first use the ROPgadget to find all the gadgets.
+```sh
+
+```
