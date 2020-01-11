@@ -15,7 +15,14 @@ nmlab@nmlab-VirtualBox:~/Desktop$ checksec vuln
     NX:       NX enabled
     PIE:      No PIE
 ```
-First view the source code and run the program, it is clear that the gets() function causes overflow.We want to create a ROP chain to execute /bin/sh, first use the ROPgadget to find all the gadgets.
+First view the source code and run the program, it is clear that the gets() function causes overflow.
 ```sh
-
+nmlab@nmlab-VirtualBox:~/Desktop$ ./vuln
+Can you ROP your way out of this one?
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Segmentation fault (core dumped)
+```
+We want to create a ROP chain to execute /bin/sh, first use the ROPgadget to find all the gadgets. In this challenge we can use the ROPgadget to create a ROP chain using the command :
+```
+ROPgadget --binary ./vuln  --ropchain --badbytes 0a
 ```
