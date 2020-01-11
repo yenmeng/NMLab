@@ -7,6 +7,11 @@ https://2019game.picoctf.com/problems
  ### Exploitation
 We can see that both NX and ALSR are enabled, so we can only use ROP to bypass.
 ```sh
-checksec
-
+nmlab@nmlab-VirtualBox:~/Desktop$ checksec vuln
+[*] '/home/nmlab/Desktop/vuln'
+    Arch:     i386-32-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      No PIE
 ```
