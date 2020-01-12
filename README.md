@@ -26,7 +26,7 @@ We want to create a ROP chain to execute /bin/sh, first use the ROPgadget to fin
 ```
 ROPgadget --binary ./vuln  --ropchain --badbytes 0a
 ```
-Note that the command --badbytes 0a is added because if the gets function receives a buffer with a newline, \n, or 0xa in ASCII, it ignores everything after it, so we have to get a payload without any newline character or else our ROP exploit will fail
+Note that the argument "--badbytes 0a" is added because if the gets function receives a buffer with a newline, \n, or 0xa in ASCII, it ignores everything after it, so we have to get a payload without any newline character or else our ROP exploit will fail
 
 After generating the ROP chain, we need to add the padding, since the buffer size is 16, the padding will be 28, or we can just simply use gdb to find the overflow offset, the payload is padding plus the ROP chain. The final step is to send the payload and get shell.
 ```python
